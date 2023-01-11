@@ -17,8 +17,8 @@ export class EmployeeService {
     return this.http.get<any>(this.href + `/getEmployeeDetailsById/${id}`);
   }
 
-  updateEmp(payload : any) {
-    return this.http.put<any>(this.href + `/updateEmployeeDetailsById`,payload);
+  updateEmp(payload : any,empId:any) {
+    return this.http.put<any>(this.href + `/updateEmployeeDetailsById/${empId}`,payload);
   }
 
   createEmp(payload:any) {

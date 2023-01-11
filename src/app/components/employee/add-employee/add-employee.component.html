@@ -51,7 +51,7 @@
                     </div>
                     <div class="row">
                         <mat-form-field class="col">
-                            <mat-label>ID-Proof(Adhaar/Pan)</mat-label>
+                            <mat-label>ID-Proof(Adhaar)</mat-label>
                             <input matInput formControlName="adhaarNo" name="adhaarNo" type="text" required="">
                         </mat-form-field>
                     <mat-form-field class="col">
@@ -59,11 +59,16 @@
                         <input matInput formControlName="experince" name="experince" type="number">
                     </mat-form-field>
                     </div>
-                    <mat-form-field>
+                    <div class="row">
+                    <mat-form-field class="col">
                         <mat-label>AppraisalStatus</mat-label>
                         <input matInput formControlName="appraisalStatus" name="appraisalStatus" type="text">
                     </mat-form-field>
-              
+                    <mat-form-field class="col">
+                        <mat-label>Salary</mat-label>
+                        <input matInput formControlName="salary" name="salary" type="text">
+                    </mat-form-field>
+                </div>
             <mat-card-footer>
                 <button [disabled]="userType !=='admin'" type="submit" mat-flat-button color="primary">{{isNew ? 'Save' : 'Update'}}
 

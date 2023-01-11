@@ -13,6 +13,7 @@ export class AddEmployeeComponent implements OnInit {
   isNew = true;
   hide = true;
   userType:any;
+  empId:any;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -25,6 +26,7 @@ export class AddEmployeeComponent implements OnInit {
       this.userType = params.userType
       this.isNew = true;
       if (params.id ) {
+        this.empId=params.id
         this.isNew = false;
         this.empService.getEmplyee(params.id).subscribe((data) => {
           this.employeeDetail.patchValue(data);
@@ -64,14 +66,22 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   update(payload: any) {
-    this.empService.updateEmp(payload).subscribe((data) => {});
+    this.empService.updateEmp(payload,this.empId).subscribe((data) => {});
+    console.log(payload);
+    console.log("update");
     window.location.reload()
+    alert("Employee Details Update Successfully")
+  //  window.location.replace('/employeeList')
 
   }
 
   create(payload: any) {
     this.empService.createEmp(payload).subscribe((data) => {});
     window.location.reload()
+    alert("Employee Details Added Succesfully")
+    // window.location.replace('/employeeList')
+
+
 
   }
 

@@ -36,5 +36,9 @@ export class TrainingserviceService {
     updateInformation(data: any,id:any){
       return this.http.put<any>("http://localhost:8084/updateInformation/"+id,data)
     }
+
+    updateNominees(data: any,id:any){
+      return this.http.put<any>("http://localhost:8084/nomineeEmployee/"+id,data)
+    }
     
   } 

@@ -6,8 +6,8 @@ import { UpdatetrainingComponent } from './updatetraining/updatetraining.compone
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-
-
+import { EmployeeComponent } from '../employee/employee.component';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 
 
@@ -22,6 +22,7 @@ export class TrainingInformationComponent implements OnInit{
   displayedColumns: string[] = ['id', 'trainingName', 'trainingTechnology', 'noOfDays','startDate','endDate','action'];
 
   dataSource!: MatTableDataSource<any>;
+
   
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -29,7 +30,10 @@ export class TrainingInformationComponent implements OnInit{
 
 
 
-  constructor(private dialog :MatDialog,private service:TrainingserviceService){}
+  constructor(private dialog :MatDialog,private service:TrainingserviceService,
+    private employee:EmployeeService
+    ){}
+
   ngOnInit(): void {
     this.getInformations();
   }
@@ -80,6 +84,19 @@ updateInformation(row:any){
     }
   })
 }
+
+updateNominees(empId:any){
+  let emp:any
+  for(let element of this.empList) {
+    if(element.empId==empId){
+     emp=element
+    }
+}
+  this.service.updateNominees(emp,this.trasId).subscribe(res=>{
+   console.log("Employee Add")
+  })
+}
+
 deleteInformation(id:any){
   this.service.deleteById(id).subscribe({
     next:(res)=>{
@@ -96,10 +113,17 @@ openBox(){
   
 }
 
+empList:any=[];
+trasId:any;
 
-
-
-
+nominees(id:any){
+  console.log(id)
+  this.trasId=id
+  this.employee.getData().subscribe(res=>{
+    this.empList=res;
+    
+  })
+}
 
 
 }

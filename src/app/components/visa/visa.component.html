@@ -24,7 +24,7 @@
         <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5">Visa Information</h1>
+              <h1 class="modal-title fs-5">VISA_INFORMATION</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"> <!--(ngSubmit)="onSubmit()"-->
@@ -39,7 +39,7 @@
                 <!-- </div> -->
 
                 <div class="formgroup mt-3">
-                  <label for="clientid" class="form-label">Transaction_Id<small>(only digits)</small></label>
+                  <label for="clientid" class="form-label">TRANSACTION_ID<small>(only digits)</small></label>
                   <input formControlName="transactionId" type="text" class="form-control" id="clientid"
                     placeholder="Enter transactionId..">
                   <!-- <div *ngIf="addProject.controls['clientid'].invalid &&(addProject.controls['clientid'].dirty || addProject.controls['clientid'].touched) ">
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="formgroup mt-3">
-                  <label for="clientEmail" class="form-label">Emp_Id</label>
+                  <label for="clientEmail" class="form-label">EMPLOYEE-ID</label>
                   <input formControlName="empId" type="email" class="form-control" id="clientEmail"
                     placeholder="Enter EmpId...">
                   <!-- <div *ngIf="addProject.controls['clientEmail'].invalid &&(addProject.controls['clientEmail'].dirty || addProject.controls['clientEmail'].touched) ">
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="formgroup mt-3">
-                  <label for="clientName" class="form-label">visa_no</label>
+                  <label for="clientName" class="form-label">VISA-NUMBER</label>
                   <input formControlName="visaNo" type="text" class="form-control" id="clientName"
                     placeholder="Enter visaNo...">
                   <!-- <div *ngIf="addProject.controls['clientName'].invalid &&(addProject.controls['clientName'].dirty || addProject.controls['clientName'].touched) ">
@@ -67,7 +67,7 @@
                   </div> -->
 
                   <div class="formgroup mt-3">
-                    <label for="clientName" class="form-label">DateOfAllotment</label>
+                    <label for="clientName" class="form-label">DATE OF ALLOTMENT</label>
                     <input formControlName="dateOfAllowtment" type="text" class="form-control" id="clientName"
                       placeholder="Enter DateOfAllotment...">
                     <!-- <div *ngIf="addProject.controls['clientName'].invalid &&(addProject.controls['clientName'].dirty || addProject.controls['clientName'].touched) ">
@@ -109,8 +109,8 @@
       <table class="table mt-3">
         <thead>
           <tr>
-            <th>s.no</th>
-            <th>Visa_Id</th>
+            <th>SR.NO</th>
+            <th>VISA-ID</th>
             <th>Transaction_Id</th>
             <th>Emp_Id</th>
             <th>visa_no</th>

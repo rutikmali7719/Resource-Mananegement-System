@@ -40,9 +40,6 @@ export class EmployeeComponent implements OnInit {
      })
   } 
 
-  filterempMethod(value:any){
-
-  }
 
   addEmployee(){
     this.route.navigate(['./addEmployee'], { queryParamsHandling: 'preserve' })
@@ -55,4 +52,7 @@ export class EmployeeComponent implements OnInit {
     })
   }
   
+
+
+ 
 }
