@@ -1,0 +1,41 @@
+<div  class="container-fluid image" >
+  <div class="img-container d-flex flex-column justify-content-center">
+    <img src="../../../assets/Login.jpg" class="rounded" alt="login-img" />
+  </div>
+
+  <div>
+
+  </div>
+
+
+
+<div class="login-form"  fxFlexFill class="main-div">
+    <mat-card fxFlex = "25">
+        <mat-toolbar color="primary">Resource Management System</mat-toolbar>
+        <form fxLayoutAlign="stretch" (ngSubmit)="onSubmit()" [formGroup]="loginForm" fxLayout="column" style="padding: 20px;">
+            <mat-form-field  appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="email" type="text" placeholder="Username">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" placeholder="Password">
+              </mat-form-field>
+              <p *ngIf="error" style="color: red;"> 
+                Invalid information
+              </p>
+              <button mat-raised-button color="primary" >Log in</button>
+              <br>
+
+            </form>
+            
+    </mat-card>
+    <mat-card style="background: none;"  >
+      <mat-card-content>
+        <h1> Resource management system</h1>
+      </mat-card-content>
+    </mat-card>
+    
+</div>
+
+

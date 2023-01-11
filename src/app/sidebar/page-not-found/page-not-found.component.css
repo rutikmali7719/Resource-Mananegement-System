@@ -1,0 +1,12 @@
+img {
+  margin-top: 5rem;
+  height: 80vh;
+  box-shadow:5px 5px 5px 5px rgb(201, 201, 201);
+}
+
+
+.button button{
+    position: absolute;
+    bottom: 15%;
+    right: 48%;
+}

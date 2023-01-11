@@ -1,0 +1,49 @@
+.card-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: calc(50% - 10px);
+  }
+    /* .mat-form-field {
+      width: 100%;
+    } */
+    .width-30 {
+      flex: 1 1 calc(30% - 12px);
+      width: calc(30% - 12px);
+}
+img {
+  /* background:fixed no-repeat; */
+  position: relative;
+  top: 60%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+  overflow: hidden;
+
+  }
+  .employeeform mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  .example-right-align {
+    text-align: right;
+  }
+
+  mat-form-field {
+    margin-right: 50px;
+  }
+
+  .employeeform{
+    position: relative;
+    top: 0%;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
+  
+  }

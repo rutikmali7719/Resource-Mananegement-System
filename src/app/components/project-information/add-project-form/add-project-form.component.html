@@ -1,0 +1,152 @@
+<div class="container-fluid">
+  <mat-toolbar color="primary" class="mt-3">
+
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>work</mat-icon>
+    </button>
+    <span>Project Information</span>
+    <span class="example-spacer"></span>
+    <input class="form-control w-25 mx-3"  type="search" [(ngModel)]="searchText" placeholder="Enter search text..." id="example-search-input">
+    <button type="button" mat-raised-button color="btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add Project <fa-icon [icon]="faCirclePlus" class="plus-icon"></fa-icon>
+    </button>
+  </mat-toolbar>
+  <div class="row">
+    <div class="col">
+      <div class="modal-search">
+        <h2>Total projects : {{projects.length}}</h2>
+      </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered  modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5">Project Information</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="addProject" (ngSubmit)="onSubmit()">
+                <div class="formgroup">
+                  <label for="projectName" class="form-label">Project Name</label>
+                  <input formControlName="projectName" type="text" class="form-control" id="projectName"
+                    placeholder="Enter project name...">
+                  <div
+                    *ngIf="addProject.controls['projectName'].invalid &&(addProject.controls['projectName'].dirty || addProject.controls['projectName'].touched) ">
+                    <small *ngIf="addProject.controls['projectName'].errors?.['required']" class="text-danger">Project
+                      Name is required</small>
+                    <small *ngIf="addProject.controls['projectName'].errors?.['minlength']" class="text-danger">Project
+                      Name Should be more than three characters</small>
+                  </div>
+                </div>
+
+                <div class="formgroup mt-3">
+                  <label for="clientid" class="form-label">Client ID<small>(only digits)</small></label>
+                  <input formControlName="clientid" type="text" class="form-control" id="clientid"
+                    placeholder="Enter client ID...">
+                  <div
+                    *ngIf="addProject.controls['clientid'].invalid &&(addProject.controls['clientid'].dirty || addProject.controls['clientid'].touched) ">
+                    <small *ngIf="addProject.controls['clientid'].errors?.['required']" class="text-danger">Client Id is
+                      required</small>
+                    <!-- <small *ngIf="addProject.controls['projectName'].errors?.['minlength']" class="text-danger">Project Name Should be more than three characters</small> -->
+                  </div>
+                </div>
+
+                <div class="formgroup mt-3">
+                  <label for="clientEmail" class="form-label">Client Email</label>
+                  <input formControlName="clientEmail" type="email" class="form-control" id="clientEmail"
+                    placeholder="Enter client email...">
+                  <div
+                    *ngIf="addProject.controls['clientEmail'].invalid &&(addProject.controls['clientEmail'].dirty || addProject.controls['clientEmail'].touched) ">
+                    <small *ngIf="addProject.controls['clientEmail'].errors?.['required']" class="text-danger">Client
+                      Email is required</small>
+                    <small *ngIf="addProject.controls['clientEmail'].errors?.['email']" class="text-danger">Enter Valid
+                      Email Address</small>
+                  </div>
+                </div>
+
+                <div class="formgroup mt-3">
+                  <label for="clientName" class="form-label">Client Name</label>
+                  <input formControlName="clientName" type="text" class="form-control" id="clientName"
+                    placeholder="Enter client name...">
+                  <div
+                    *ngIf="addProject.controls['clientName'].invalid &&(addProject.controls['clientName'].dirty || addProject.controls['clientName'].touched) ">
+                    <small *ngIf="addProject.controls['clientName'].errors?.['required']" class="text-danger">Client
+                      Name is required</small>
+                    <small *ngIf="addProject.controls['clientName'].errors?.['minlength']" class="text-danger">Client
+                      Name Should be more than three characters</small>
+                  </div>
+                </div>
+                <div class="modal-footer mt-2">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button mat-raised-button color="warn" (click)="updateProject()">Update</button>
+                  <button type="button" mat-raised-button color="primary" data-bs-dismiss="modal"
+                    (click)="addProjectToDB()" [disabled]="addProject.invalid">Add</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="container">
+  </div>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th>Project Id</th>
+        <th>Project Name</th>
+        <th>Client Id</th>
+        <th>Client Email</th>
+        <th>Client Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects | searchProject : searchText">
+        <td>{{project.projectId}}</td>
+        <td>{{project.projectName | titlecase}}</td>
+        <td>{{project.clientId}}</td>
+        <td>{{project.clientEmail}}</td>
+        <td>{{project.clientName | titlecase}}</td>
+        <td>
+          <button type="button" (click)="openEdit(project)" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            title="edit" class="btn btn-primary mx-1"><fa-icon [icon]="faPenToSquare"
+              class="actions"></fa-icon></button>
+          <button type="button" title="delete" class="btn btn-danger mx-1" (click)="deleteProject(project)"><fa-icon
+              [icon]="faTrashCan" class="actions"></fa-icon></button>
+          <button type="button" title="view" class="btn btn-success" (click)="getProjectById(project)"
+            data-bs-toggle="modal" data-bs-target="#exampleModal2"><fa-icon [icon]="faEye"></fa-icon></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h1 *ngIf="projects.length === 0" class="length">uh..! oh snap nothing found</h1>
+
+<!-- viewById Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{projectById.projectName}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item">Project Name : {{projectById.projectName | titlecase}}</li>
+          <li class="list-group-item">Client Id : {{projectById.clientId}}</li>
+          <li class="list-group-item">Client Name : {{projectById.clientName | titlecase}}</li>
+          <li class="list-group-item">Client Email : {{projectById.clientEmail}}</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>

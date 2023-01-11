@@ -1,0 +1,27 @@
+.main-div mat-card {
+padding: 0%;
+align-self: center;
+
+}
+
+.image {
+  /* background:fixed no-repeat; */
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+
+  }
+  .image img{
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
+  }
+form.login-form{
+   position: relative;
+   bottom: 50%;
+}
+

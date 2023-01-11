@@ -1,0 +1,66 @@
+<h1 mat-dialog-title>Add Training Details</h1>
+<div mat-dialog-content>
+    <form [formGroup]="trainingForm">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Id</mat-label>
+          <input formControlName="id" matInput placeholder="Id">
+          <mat-hint>Ex:101</mat-hint>
+        </mat-form-field>
+        </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Training Name</mat-label>
+          <mat-select formControlName="trainingName" matInput placeholder="Training Name">
+            <mat-option value = "JavaFullStack">JavaFullStack</mat-option>
+            <mat-option value = "Angular">angular</mat-option>
+            <mat-option value = "python">python</mat-option>
+            <mat-option value = "React">react</mat-option>
+          </mat-select>
+          <mat-hint>Ex:JavaFullStack</mat-hint>
+        </mat-form-field>
+</p>
+
+    <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Training Technology</mat-label>
+          <input formControlName="trainingTechnology" matInput placeholder="TrainingTechnology">
+          <mat-hint>Ex:JavaFullStack</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>NoOfDays</mat-label>
+          <input formControlName="noOfDays" matInput placeholder="noOfDays">
+          <mat-hint>Ex:20</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input formControlName="startDate"matInput placeholder="Start Date">
+          
+          
+          <mat-hint>Ex:1</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>End date</mat-label>
+          <input formControlName="endDate"matInput placeholder="End Date">
+          
+          
+          <mat-hint>Ex:2</mat-hint>
+        </mat-form-field>
+      </p>
+    </form>
+
+
+
+<div mat-dialog-action [align] ="'end'" >
+  <button mat-raised-button color="warn" mat-dialog-close="" >Cancel</button>
+  
+  <button mat-raised-button color="primary" (click) = "addInformation()" >{{actionBtn}}</button>   
+</div>

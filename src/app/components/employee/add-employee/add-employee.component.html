@@ -1,0 +1,76 @@
+<div class=".employeeform" fxLayoutAlign="" fxFlexFill class="mt-2">
+    <mat-card fxFlex="100">
+        <mat-toolbar color="primary">Employee Form</mat-toolbar>
+        <form fxLayoutAlign="stretch" [formGroup]="employeeDetail" (ngSubmit)="onSubmit()" fxLayout="column"
+            style="padding: 20px;">
+            <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput type="text" formControlName="empname" name="empname" required="">
+                    </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Email-ID</mat-label>
+                        <input matInput type="email" formControlName="email" name="email" required=""  class="example-left-align">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password" name="password" required=""
+                        matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Contact</mat-label>
+                        <input matInput formControlName="phoneNo" name="phoneNo" type="tel">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="address" name="address" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Birthdate</mat-label>
+                        <input matInput formControlName="birthDate" name="birthDate" type="date" >
+                    </mat-form-field>
+                    
+                    </div>
+                    <div class="row">
+                    <mat-form-field class="col">
+                        <mat-label>Department</mat-label>
+                        <input matInput formControlName="department" name="department" type="text">
+                    </mat-form-field>
+
+                    <mat-form-field class="col">
+                        <mat-label>Skill</mat-label>
+                        <input matInput formControlName="skill" name="skill" type="text" >
+                    </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>ID-Proof(Adhaar/Pan)</mat-label>
+                            <input matInput formControlName="adhaarNo" name="adhaarNo" type="text" required="">
+                        </mat-form-field>
+                    <mat-form-field class="col">
+                        <mat-label>Experince</mat-label>
+                        <input matInput formControlName="experince" name="experince" type="number">
+                    </mat-form-field>
+                    </div>
+                    <mat-form-field>
+                        <mat-label>AppraisalStatus</mat-label>
+                        <input matInput formControlName="appraisalStatus" name="appraisalStatus" type="text">
+                    </mat-form-field>
+              
+            <mat-card-footer>
+                <button [disabled]="userType !=='admin'" type="submit" mat-flat-button color="primary">{{isNew ? 'Save' : 'Update'}}
+
+                </button>
+            </mat-card-footer>
+        </form>
+
+
+    </mat-card>
+</div>

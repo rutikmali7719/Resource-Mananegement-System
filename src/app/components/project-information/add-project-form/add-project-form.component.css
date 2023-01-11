@@ -1,0 +1,45 @@
+.form-control.ng-touched.ng-invalid {
+  border: 1px solid tomato;
+}
+
+.form-control.ng-touched.ng-valid {
+  border: 1px solid green;
+}
+
+.plus-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+table {
+  box-shadow: 5px 5px 10px 10px rgb(193, 193, 193);
+}
+
+thead {
+  border-top: 1px solid #e1e1e1;
+}
+table tbody tr td {
+  vertical-align: middle;
+}
+
+h1.length{
+    text-align: center;
+    margin-top:5rem ;
+}
+.modal-search{
+    display: flex;
+    justify-content: space-between;
+}
+.modal-search input{
+    width: 20%;
+    border-radius:5px;
+    padding: 5px;
+    outline: none;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
